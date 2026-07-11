@@ -6,6 +6,20 @@ than most churn projects stop: not just *who* will churn, but *who's worth spend
 retention budget on*.
 
 📓 **[Read the full notebook: `telecom_churn_retention.ipynb`](telecom_churn_retention.ipynb)**
+🧹 **[Data cleaning & EDA companion notebook: `data_cleaning_eda.ipynb`](data_cleaning_eda.ipynb)**
+
+## Data prep & EDA
+
+Before any modeling, a companion notebook covers the preprocessing this project actually
+runs on: a `TotalCharges` column disguised as text (masking 11 genuinely missing values), a
+duplicated missing-value handler bug caught mid-build, chi-square/Welch's t-test feature
+selection (statistically confirming `gender` and `PhoneService` carry no churn signal —
+dropped), and two engineered features. The more interesting of the two, `NumServices`, isn't
+simply "fewer is safer" — churn rate rises sharply from 0 to 2 services (8.7% → 47.7%, the
+single riskiest group) before falling steadily as bundling deepens, down to 5.3% at 8
+services.
+
+![Engineered features vs. churn](assets/prep_engineered_features.png)
 
 ## Starting point
 
